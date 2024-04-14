@@ -4,3 +4,12 @@ Este código foi desenvolvido para simplificar os cálculos necessários na cade
 
 # Exemplo de representação
 ![](https://github.com/nadirfernandes/ped-scripts/blob/main/probscriptsRepresentation.gif)
+
+# Calculadoras Compativeis
+- TEXAS TI 84 PLUS CE-T (PYTHON EDITION)
+- TEXAS TI-Nspire™ CX II-T
+- TI-Nspire™ CX II-T CAS
+- Casio FX-CG50
+- CASIO FX-9860GIII
+- NumWorks
+- HP Prime G2
