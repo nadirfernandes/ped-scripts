@@ -5,8 +5,8 @@ Este código foi desenvolvido para simplificar os cálculos necessários na cade
 ## Calculadoras Compativeis
 - TEXAS TI 84 PLUS CE-T (PYTHON EDITION)
 - TEXAS TI-Nspire™ CX II-T
-- TI-Nspire™ CX II-T CAS
-- Casio FX-CG50
+- TEXAS TI-Nspire™ CX II-T CAS
+- CASIO FX-CG50
 - CASIO FX-9860GIII
 - NumWorks
 - HP Prime G2
