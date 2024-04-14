@@ -1,274 +1,281 @@
 import math
 
-def comb(n, k):
-    """
-    Calcula combinações de n elementos tomados k a k.
-    
-    Argumentos:
-    n -- número total de elementos
-    k -- número de elementos a serem escolhidos
-    
-    Retorna:
-    O número de combinações possíveis
-    """
-    if k > n:
-        return 0
-    return math.factorial(n) // (math.factorial(k) * math.factorial(n - k))
+while True:
+
+
+    def comb(n, k):
+        """
+        Calcula combinações de n elementos tomados k a k.
+        
+        Argumentos:
+        n -- número total de elementos
+        k -- número de elementos a serem escolhidos
+        
+        Retorna:
+        O número de combinações possíveis
+        """
+        if k > n:
+            return 0
+        return math.factorial(n) // (math.factorial(k) * math.factorial(n - k))
 
 
 
+    print("1 - Distribuição Hipergeométrica")
+    print("2 - Distribuição Binomial")
+    print("3 - Distribuição de Poisson")
+    print("4 - Distribuição Geométrica")
+    print()
 
 
+    term = int(input("Escolha o tipo de distribuição pretendida: "))
+
+    match term:
+        case 1:
+            print()
+            print("Distribuição Hipergeométrica de parâmetros (N,M,n) [X~H(N,M,n)]")
+            print()
+            print("1 - Função de probabilidade")
+            print("2 - Valor médio")
+            print("3 - Variância")
+            print("4 - Desvio padrão")
+
+            choice = int(input("Escolha a área pretendida: "))
+            match choice:
+                case 1:
+                    print()
+                    nGrande = int(input("N: "))
+                    m = int(input("M: "))
+                    n = int(input("n: "))
+                    k = int(input("k: "))
+                    res = (comb(m,k)*comb(nGrande-m,n-k))/comb(nGrande,n)
+                    print(f"Resultado: {res}")
+                case 2:
+                    print()
+                    nGrande = int(input("N: "))
+                    m = int(input("M: "))
+                    n = int(input("n: "))
+                    res = n*(m/nGrande)
+                    print(f"Resultado: {res}")
+                case 3:
+                    print()
+                    nGrande = int(input("N: "))
+                    m = int(input("M: "))
+                    n = int(input("n: "))
+                    res = (n*(m/nGrande)) * (1-(m/nGrande)) * ((nGrande-n)/(nGrande-1))
+                    print(f"Resultado: {res}")
+                case 4:
+                    print()
+                    v = int(input("V: "))
+                    res = math.sqrt(v)
+                    print(f"Resultado: {res}")
+        case 2:
+            print()
+            print("Distribuição Binomial de parâmetros (n,p) [X~B(n,p)]")
+            print()
+            print("1 - Função de probabilidade")
+            print("2 - Valor médio")
+            print("3 - Variância")
+
+            choice = int(input("Escolha a área pretendida: "))
+            match choice:
+                case 1:
+                    print()
+                    n = int(input("n: "))
+                    p = float(input("p: "))
+                    k = int(input("k: "))
+                    res = comb(n,k) * (p ** k) * ((1-p) ** (n-k))
+                    print(f"Resultado: {res}")
+                case 2:
+                    print()
+                    n = int(input("n: "))
+                    p = float(input("p: "))
+                    res = n*p
+                    print(f"Resultado: {res}")
+                case 3:
+                    print()
+                    n = int(input("n: "))
+                    p = float(input("p: "))
+                    res = n*p*(1-p)
+                    print(f"Resultado: {res}")
+        case 3:
+            print()
+            print("Distribuição Poisson de parâmetro λ [X~P(λ)]")
+            print()
+            print("1 - Função de probabilidade")
+            print("2 - Valor médio")
+            print("3 - Variância")
+            print("4 - Lamda (λ)")
+            print("5 - Processo de Poisson")
+            print()
+
+            choice = int(input("Escolha a área pretendida: "))
+            match choice:
+                case 1:
+                    print()
+                    λ = int(input("λ: "))
+                    k = int(input("k: "))
+                    res = (math.e ** -λ) * ((λ ** k) / math.factorial(k))
+                    print(f"Resultado: {res}")
+                case 2:
+                    print()
+                    λ = int(input("λ: "))
+                    res = λ
+                    print(f"Resultado: {res}")
+                case 3:
+                    print()
+                    λ = int(input("λ: "))
+                    res = λ
+                    print(f"Resultado: {res}")
+                case 4:
+                    print()
+                    n = int(input("n: "))
+                    p = float(input("p: "))
+                    res = n*p
+                    print(f"Resultado: {res}")
+                case 5:
+                    print()
+                    print("1 - P(X ≤ Nt ≤ Y)")
+                    print("2 - P(X < Nt ≤ Y)")
+                    print("3 - P(X ≤ Nt < Y)")
+                    print("4 - P(X < Nt < Y)")
+                    print("5 - P(Nt ≤ X)")
+                    print("6 - P(Nt < X)")
+                    print()
 
 
-print("1 - Distribuição Hipergeométrica")
-print("2 - Distribuição Binomial")
-print("3 - Distribuição de Poisson")
-print("4 - Distribuição Geométrica")
-print()
+                    choice2 = int(input("Escolha o tipo de probabilidade pretendida: "))
+                    match choice2:
+                        case 1:
+                            print()
+                            beta = float(input("β: "))
+                            t = float(input("t: "))
+                            w = int(input("X: "))
+                            y = int(input("Y: "))
 
-term = int(input("Escolha o tipo de distribuição pretendida: "))
+                            lamb = beta*t
 
-match term:
-    case 1:
-        print()
-        print("Distribuição Hipergeométrica de parâmetros (N,M,n) [X~H(N,M,n)]")
-        print()
-        print("1 - Função de probabilidade")
-        print("2 - Valor médio")
-        print("3 - Variância")
-        print("4 - Desvio padrão")
+                            result = 0
 
-        choice = int(input("Escolha a área pretendida: "))
-        match choice:
-            case 1:
-                print()
-                nGrande = int(input("N: "))
-                m = int(input("M: "))
-                n = int(input("n: "))
-                k = int(input("k: "))
-                res = (comb(m,k)*comb(nGrande-m,n-k))/comb(nGrande,n)
-                print(f"Resultado: {res}")
-            case 2:
-                print()
-                nGrande = int(input("N: "))
-                m = int(input("M: "))
-                n = int(input("n: "))
-                res = n*(m/nGrande)
-                print(f"Resultado: {res}")
-            case 3:
-                print()
-                nGrande = int(input("N: "))
-                m = int(input("M: "))
-                n = int(input("n: "))
-                res = (n*(m/nGrande)) * (1-(m/nGrande)) * ((nGrande-n)/(nGrande-1))
-                print(f"Resultado: {res}")
-            case 4:
-                print()
-                v = int(input("V: "))
-                res = math.sqrt(v)
-                print(f"Resultado: {res}")
-    case 2:
-        print()
-        print("Distribuição Binomial de parâmetros (n,p) [X~B(n,p)]")
-        print()
-        print("1 - Função de probabilidade")
-        print("2 - Valor médio")
-        print("3 - Variância")
+                            for x in range(w, y+1):
+                                res = (math.e ** -lamb) * ((lamb ** x) / math.factorial(x))
+                                result = result + res
 
-        choice = int(input("Escolha a área pretendida: "))
-        match choice:
-            case 1:
-                print()
-                n = int(input("n: "))
-                p = float(input("p: "))
-                k = int(input("k: "))
-                res = comb(n,k) * (p ** k) * ((1-p) ** (n-k))
-                print(f"Resultado: {res}")
-            case 2:
-                print()
-                n = int(input("n: "))
-                p = float(input("p: "))
-                res = n*p
-                print(f"Resultado: {res}")
-            case 3:
-                print()
-                n = int(input("n: "))
-                p = float(input("p: "))
-                res = n*p*(1-p)
-                print(f"Resultado: {res}")
-    case 3:
-        print()
-        print("Distribuição Poisson de parâmetro λ [X~P(λ)]")
-        print()
-        print("1 - Função de probabilidade")
-        print("2 - Valor médio")
-        print("3 - Variância")
-        print("4 - Lamda (λ)")
-        print("5 - Processo de Poisson")
-        print()
+                            print(f"Resultado: {result}")
 
-        choice = int(input("Escolha a área pretendida: "))
-        match choice:
-            case 1:
-                print()
-                λ = int(input("λ: "))
-                k = int(input("k: "))
-                res = (math.e ** -λ) * ((λ ** k) / math.factorial(k))
-                print(f"Resultado: {res}")
-            case 2:
-                print()
-                λ = int(input("λ: "))
-                res = λ
-                print(f"Resultado: {res}")
-            case 3:
-                print()
-                λ = int(input("λ: "))
-                res = λ
-                print(f"Resultado: {res}")
-            case 4:
-                print()
-                n = int(input("n: "))
-                p = float(input("p: "))
-                res = n*p
-                print(f"Resultado: {res}")
-            case 5:
-                print()
-                print("1 - P(X ≤ Nt ≤ Y)")
-                print("2 - P(X < Nt ≤ Y)")
-                print("3 - P(X ≤ Nt < Y)")
-                print("4 - P(X < Nt < Y)")
-                print("5 - P(Nt ≤ X)")
-                print("6 - P(Nt < X)")
-                print()
+                        case 2:
+                            print()
+                            beta = float(input("β: "))
+                            t = float(input("t: "))
+                            w = int(input("X: "))
+                            y = int(input("Y: "))
+
+                            lamb = beta*t
+
+                            result = 0
+
+                            for x in range(w+1, y+1):
+                                res = (math.e ** -lamb) * ((lamb ** x) / math.factorial(x))
+                                result = result + res
+
+                            print(f"Resultado: {result}")
+
+                        case 3:
+                            print()
+                            beta = float(input("β: "))
+                            t = float(input("t: "))
+                            w = int(input("X: "))
+                            y = int(input("Y: "))
+
+                            lamb = beta*t
+
+                            result = 0
+
+                            for x in range(w, y):
+                                res = (math.e ** -lamb) * ((lamb ** x) / math.factorial(x))
+                                result = result + res
+
+                            print(f"Resultado: {result}")
+
+                        case 4:
+                            print()
+                            beta = float(input("β: "))
+                            t = float(input("t: "))
+                            w = int(input("X: "))
+                            y = int(input("Y: "))
+
+                            lamb = beta*t
+
+                            result = 0
+
+                            for x in range(w+1, y):
+                                res = (math.e ** -lamb) * ((lamb ** x) / math.factorial(x))
+                                result = result + res
+
+                            print(f"Resultado: {result}")
+
+                        case 5:
+                            print()
+                            beta = float(input("β: "))
+                            t = float(input("t: "))
+                            w = int(input("X: "))
+
+                            lamb = beta*t
+
+                            result = 0
+
+                            for x in range(0, w+1):
+                                res = (math.e ** -lamb) * ((lamb ** x) / math.factorial(x))
+                                result = result + res
+
+                            print(f"Resultado: {result}")
+
+                        case 6:
+                            print()
+                            beta = float(input("β: "))
+                            t = float(input("t: "))
+                            w = int(input("X: "))
+
+                            lamb = beta*t
+
+                            result = 0
+
+                            for x in range(0, w):
+                                res = (math.e ** -lamb) * ((lamb ** x) / math.factorial(x))
+                                result = result + res
+
+                            print(f"Resultado: {result}")
 
 
-                choice2 = int(input("Escolha o tipo de probabilidade pretendida: "))
-                match choice2:
-                    case 1:
-                        print()
-                        beta = float(input("β: "))
-                        t = float(input("t: "))
-                        w = int(input("X: "))
-                        y = int(input("Y: "))
+        case 4:
+            print()
+            print("Distribuição Geométrica de parâmetro p [X~G(p)]")
+            print()
+            print("1 - Função de probabilidade")
+            print("2 - Valor médio")
+            print("3 - Variância")
 
-                        lamb = beta*t
+            choice = int(input("Escolha a área pretendida: "))
+            match choice:
+                case 1:
+                    print()
+                    p = float(input("p: "))
+                    k = int(input("k: "))
+                    res = p * ((1-p) ** (k-1))
+                    print(f"Resultado: {res}")
+                case 2:
+                    print()
+                    p = float(input("p: "))
+                    res = 1/p
+                    print(f"Resultado: {res}")
+                case 3:
+                    print()
+                    p = float(input("p: "))
+                    res = (1-p) / (p ** 2)
+                    print(f"Resultado: {res}")
 
-                        result = 0
-
-                        for x in range(w, y+1):
-                            res = (math.e ** -lamb) * ((lamb ** x) / math.factorial(x))
-                            result = result + res
-
-                        print(f"Resultado: {result}")
-
-                    case 2:
-                        print()
-                        beta = float(input("β: "))
-                        t = float(input("t: "))
-                        w = int(input("X: "))
-                        y = int(input("Y: "))
-
-                        lamb = beta*t
-
-                        result = 0
-
-                        for x in range(w+1, y+1):
-                            res = (math.e ** -lamb) * ((lamb ** x) / math.factorial(x))
-                            result = result + res
-
-                        print(f"Resultado: {result}")
-
-                    case 3:
-                        print()
-                        beta = float(input("β: "))
-                        t = float(input("t: "))
-                        w = int(input("X: "))
-                        y = int(input("Y: "))
-
-                        lamb = beta*t
-
-                        result = 0
-
-                        for x in range(w, y):
-                            res = (math.e ** -lamb) * ((lamb ** x) / math.factorial(x))
-                            result = result + res
-
-                        print(f"Resultado: {result}")
-
-                    case 4:
-                        print()
-                        beta = float(input("β: "))
-                        t = float(input("t: "))
-                        w = int(input("X: "))
-                        y = int(input("Y: "))
-
-                        lamb = beta*t
-
-                        result = 0
-
-                        for x in range(w+1, y):
-                            res = (math.e ** -lamb) * ((lamb ** x) / math.factorial(x))
-                            result = result + res
-
-                        print(f"Resultado: {result}")
-
-                    case 5:
-                        print()
-                        beta = float(input("β: "))
-                        t = float(input("t: "))
-                        w = int(input("X: "))
-
-                        lamb = beta*t
-
-                        result = 0
-
-                        for x in range(0, w+1):
-                            res = (math.e ** -lamb) * ((lamb ** x) / math.factorial(x))
-                            result = result + res
-
-                        print(f"Resultado: {result}")
-
-                    case 6:
-                        print()
-                        beta = float(input("β: "))
-                        t = float(input("t: "))
-                        w = int(input("X: "))
-
-                        lamb = beta*t
-
-                        result = 0
-
-                        for x in range(0, w):
-                            res = (math.e ** -lamb) * ((lamb ** x) / math.factorial(x))
-                            result = result + res
-
-                        print(f"Resultado: {result}")
+    print()
+    user_input = input("Quer terminar o programa (Escreva s ou n)? ").lower()
+    if user_input == "s":
+        break
 
 
-    case 4:
-        print()
-        print("Distribuição Geométrica de parâmetro p [X~G(p)]")
-        print()
-        print("1 - Função de probabilidade")
-        print("2 - Valor médio")
-        print("3 - Variância")
-
-        choice = int(input("Escolha a área pretendida: "))
-        match choice:
-            case 1:
-                print()
-                p = float(input("p: "))
-                k = int(input("k: "))
-                res = p * ((1-p) ** (k-1))
-                print(f"Resultado: {res}")
-            case 2:
-                print()
-                p = float(input("p: "))
-                res = 1/p
-                print(f"Resultado: {res}")
-            case 3:
-                print()
-                p = float(input("p: "))
-                res = (1-p) / (p ** 2)
-                print(f"Resultado: {res}")
