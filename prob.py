@@ -105,6 +105,8 @@ match term:
         print("2 - Valor médio")
         print("3 - Variância")
         print("4 - Lamda (λ)")
+        print("5 - Processo de Poisson")
+        print()
 
         choice = int(input("Escolha a área pretendida: "))
         match choice:
@@ -130,6 +132,119 @@ match term:
                 p = float(input("p: "))
                 res = n*p
                 print(f"Resultado: {res}")
+            case 5:
+                print()
+                print("1 - P(X ≤ Nt ≤ Y)")
+                print("2 - P(X < Nt ≤ Y)")
+                print("3 - P(X ≤ Nt < Y)")
+                print("4 - P(X < Nt < Y)")
+                print("5 - P(Nt ≤ X)")
+                print("6 - P(Nt < X)")
+                print()
+
+
+                choice2 = int(input("Escolha o tipo de probabilidade pretendida: "))
+                match choice2:
+                    case 1:
+                        print()
+                        beta = float(input("β: "))
+                        t = float(input("t: "))
+                        w = int(input("X: "))
+                        y = int(input("Y: "))
+
+                        lamb = beta*t
+
+                        result = 0
+
+                        for x in range(w, y+1):
+                            res = (math.e ** -lamb) * ((lamb ** x) / math.factorial(x))
+                            result = result + res
+
+                        print(f"Resultado: {result}")
+
+                    case 2:
+                        print()
+                        beta = float(input("β: "))
+                        t = float(input("t: "))
+                        w = int(input("X: "))
+                        y = int(input("Y: "))
+
+                        lamb = beta*t
+
+                        result = 0
+
+                        for x in range(w+1, y+1):
+                            res = (math.e ** -lamb) * ((lamb ** x) / math.factorial(x))
+                            result = result + res
+
+                        print(f"Resultado: {result}")
+
+                    case 3:
+                        print()
+                        beta = float(input("β: "))
+                        t = float(input("t: "))
+                        w = int(input("X: "))
+                        y = int(input("Y: "))
+
+                        lamb = beta*t
+
+                        result = 0
+
+                        for x in range(w, y):
+                            res = (math.e ** -lamb) * ((lamb ** x) / math.factorial(x))
+                            result = result + res
+
+                        print(f"Resultado: {result}")
+
+                    case 4:
+                        print()
+                        beta = float(input("β: "))
+                        t = float(input("t: "))
+                        w = int(input("X: "))
+                        y = int(input("Y: "))
+
+                        lamb = beta*t
+
+                        result = 0
+
+                        for x in range(w+1, y):
+                            res = (math.e ** -lamb) * ((lamb ** x) / math.factorial(x))
+                            result = result + res
+
+                        print(f"Resultado: {result}")
+
+                    case 5:
+                        print()
+                        beta = float(input("β: "))
+                        t = float(input("t: "))
+                        w = int(input("X: "))
+
+                        lamb = beta*t
+
+                        result = 0
+
+                        for x in range(0, w+1):
+                            res = (math.e ** -lamb) * ((lamb ** x) / math.factorial(x))
+                            result = result + res
+
+                        print(f"Resultado: {result}")
+
+                    case 6:
+                        print()
+                        beta = float(input("β: "))
+                        t = float(input("t: "))
+                        w = int(input("X: "))
+
+                        lamb = beta*t
+
+                        result = 0
+
+                        for x in range(0, w):
+                            res = (math.e ** -lamb) * ((lamb ** x) / math.factorial(x))
+                            result = result + res
+
+                        print(f"Resultado: {result}")
+
 
     case 4:
         print()
