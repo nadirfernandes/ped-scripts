@@ -75,6 +75,7 @@ while True:
             print("1 - Função de probabilidade")
             print("2 - Valor médio")
             print("3 - Variância")
+            print("4 - Intervalos de probabilidades")
 
             choice = int(input("Escolha a área pretendida: "))
             match choice:
@@ -97,6 +98,26 @@ while True:
                     p = float(input("p: "))
                     res = n*p*(1-p)
                     print(f"Resultado: {res}")
+                case 4:
+                    print()
+                    print("1 - P(X ≤ k)")
+                    print()
+
+                    choice2 = int(input("Escolha o tipo de probabilidade pretendida: "))
+                    match choice2:
+                        case 1:
+                            print()
+                            n = int(input("n: "))
+                            p = float(input("p: "))
+                            k = int(input("k: "))
+
+                            result = 0
+
+                            for k in range(0, k+1):
+                                res = comb(n,k) * (p ** k) * ((1-p) ** (n-k))
+                                result = result + res
+
+                            print(f"Resultado: {result}")
         case 3:
             print()
             print("Distribuição Poisson de parâmetro λ [X~P(λ)]")
