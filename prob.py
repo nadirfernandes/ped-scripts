@@ -1,6 +1,10 @@
 import math
+from math import sqrt, erf
 
 while True:
+
+    def tabela_normal_reduzida(z):
+        return (1 + erf(z / sqrt(2))) / 2
 
 
     def comb(n, k):
@@ -24,6 +28,8 @@ while True:
     print("2 - Distribuição Binomial")
     print("3 - Distribuição de Poisson")
     print("4 - Distribuição Geométrica")
+    print("5 - Distribuição Uniforme")
+    print("6 - Função de Distribuição do Modelo Normal Reduzido")
     print()
 
 
@@ -293,6 +299,43 @@ while True:
                     p = float(input("p: "))
                     res = (1-p) / (p ** 2)
                     print(f"Resultado: {res}")
+        case 5:
+            print()
+            print("Distribuição Uniforme de parâmetros (a,b) [X~U(a,b)]")
+            print()
+            print("1 - Valor médio")
+            print("2 - Valor médio ^2")
+            print("3 - Variância")
+            choice = int(input("Escolha a área pretendida: "))
+            match choice:
+                case 1:
+                    print()
+                    a = int(input("a: "))
+                    b = int(input("b: "))
+                    res = (a+b)/2
+                    print(f"Resultado: {res}")
+                case 2:
+                    print()
+                    a = int(input("a: "))
+                    b = int(input("b: "))
+                    res = ( (b**2) + a*b + (a**2) )/3
+                    print(f"Resultado: {res}")
+                case 3:
+                    print()
+                    a = int(input("a: "))
+                    b = int(input("b: "))
+                    res = ((b-a) ** 2)/12
+                    print(f"Resultado: {res}")
+        case 6:
+            print()
+            print("Φ(z) = P (Z ≤ z)")
+            print()
+            z = float(input("z: "))
+            probabilidade = round(tabela_normal_reduzida(z),4)
+            print("Probabilidade: ", probabilidade)
+
+
+
 
     print()
     user_input = input("Quer terminar o programa (Escreva s ou n)? ").lower()

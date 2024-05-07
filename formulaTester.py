@@ -1,43 +1,9 @@
-import math
+from math import sqrt, erf
 
+def tabela_normal_reduzida(z):
+    return (1 + erf(z / sqrt(2))) / 2
 
-
-
-
-
-
-
-
-
-print("5 - P(X ≤ k)")
-
-def comb(n, k):
-        """
-        Calcula combinações de n elementos tomados k a k.
-        
-        Argumentos:
-        n -- número total de elementos
-        k -- número de elementos a serem escolhidos
-        
-        Retorna:
-        O número de combinações possíveis
-        """
-        if k > n:
-            return 0
-        return math.factorial(n) // (math.factorial(k) * math.factorial(n - k))
-
-n = int(input("n: "))
-p = float(input("p: "))
-k = int(input("k: "))
-
-result = 0
-
-for k in range(0, k+1):
-    res = comb(n,k) * (p ** k) * ((1-p) ** (n-k))
-    result = result + res
-
-print(f"Resultado: {result}")
-
-
-
-
+# Exemplo de uso
+z = 3.0 # O valor de z para o qual você deseja calcular a probabilidade
+probabilidade = round(tabela_normal_reduzida(z),4)
+print("Probabilidade para z =", z, ":", probabilidade)
