@@ -29,7 +29,8 @@ while True:
     print("3 - Distribuição de Poisson")
     print("4 - Distribuição Geométrica")
     print("5 - Distribuição Uniforme")
-    print("6 - Função de Distribuição do Modelo Normal Reduzido")
+    print("6 - Distribuição Exponencial")
+    print("7 - Função de Distribuição do Modelo Normal Reduzido")
     print()
 
 
@@ -280,7 +281,7 @@ while True:
             print("1 - Função de probabilidade")
             print("2 - Valor médio")
             print("3 - Variância")
-
+            print()
             choice = int(input("Escolha a área pretendida: "))
             match choice:
                 case 1:
@@ -303,9 +304,16 @@ while True:
             print()
             print("Distribuição Uniforme de parâmetros (a,b) [X~U(a,b)]")
             print()
+            print(" Função densidade de probabilidade:")
+            print("f(x) = { 1/(b-a), x ∈ [a,b] ; 0, x ∉ [a,b]" )
+            print()
+            print("Função distribuição:")
+            print("Fx(x) = P(X ≤ x) = { 0, x < a ; (x-a)/(b-a), a ≤ x < b ; 1, x ≥ b")
+            print()
             print("1 - Valor médio")
             print("2 - Valor médio ^2")
             print("3 - Variância")
+            print()
             choice = int(input("Escolha a área pretendida: "))
             match choice:
                 case 1:
@@ -327,6 +335,26 @@ while True:
                     res = ((b-a) ** 2)/12
                     print(f"Resultado: {res}")
         case 6:
+            print()
+            print("Distribuição Exponencial de parâmetros (λ,δ) [X~E(λ,δ)]")
+            print()
+            print("1 - Valor médio")
+            print("2 - Variância")
+            print()
+            choice = int(input("Escolha a área pretendida: "))
+            match choice:
+                case 1:
+                    print()
+                    lamda = int(input("λ: "))
+                    delta = int(input("δ: "))
+                    res = lamda+delta
+                    print(f"Resultado: {res}")
+                case 2:
+                    print()
+                    delta = int(input("δ: "))
+                    res = delta ** 2
+                    print(f"Resultado: {res}")
+        case 7:
             print()
             print("Φ(z) = P (Z ≤ z)")
             print()
